@@ -1,0 +1,15 @@
+.aboutDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.contentDiv{
+    width: 500;
+    height: 520;
+}   
+
+.imgDiv{
+    z-index: -1;
+}

@@ -1,0 +1,62 @@
+  .navBar{
+    position: sticky;
+    top: 0;
+    left:0;
+    background-color: white;
+    width: 100%;
+    border-bottom:1px solid #ccc!important;
+    border: 2px;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 1000000;
+  }
+
+  .navBtn {    
+    width: 20%;  
+    height: 50%;
+    text-align: center;
+    align-self: center; 
+    cursor: pointer;
+    position: relative;
+    padding: 6px 21px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    -webkit-transition: ease-out 0.5s;
+    -moz-transition: ease-out 0.5s;
+}
+
+  .navBtn::after,
+  .navBtn::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      transition: .5s;
+  }
+  
+  .navBtn::after {
+      top: -9px;
+      left: -9px;
+      border-top: 3px solid transparent;
+      border-left: 3px solid transparent;
+  }
+  
+  .navBtn::before {
+      bottom: -9px;
+      right: -9px;
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid transparent;
+  }
+  
+  .navBtn:hover {
+      color: #222222;
+  }
+  
+  .navBtn:hover::after,
+  .navBtn:hover::before {
+      width: 30px;
+      height: 30px;
+      border-color: #222222;
+  }

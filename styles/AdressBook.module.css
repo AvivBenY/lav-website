@@ -1,0 +1,17 @@
+.mainDiv{
+    margin-top: 2%;
+    border: 1px solid black;
+    direction: rtl;
+    width: 80%;
+}
+
+.cell{
+    width: 20%;
+    direction: rtl;
+    text-align: center;
+}
+.cellN{
+    width: 1%;
+    text-align: start;
+    direction: rtl;
+}

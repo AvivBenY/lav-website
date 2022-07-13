@@ -1,0 +1,26 @@
+.bottomDiv{
+    direction: rtl;
+    width: 75%;
+    border-bottom:1px solid #ccc!important;
+    border-top:1px solid #ccc!important;
+    margin: 1% 0 1% 0;
+    padding: 1% 0 1% 0;
+    border: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.bottomLink{        
+    width: 400px;
+    height: 100px;
+        color: whitesmoke;    
+        background-color:black;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;        
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
