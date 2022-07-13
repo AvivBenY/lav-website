@@ -24,8 +24,7 @@ export default function Gallery() {
     <div>Gallery<br />
       {imageIds && imageIds.map((imageId, index) => {
         <div>
-          <Image
-            key={index}
+          <Image key={index}
             cloudName='dlojdpg6j'
             alt='didntLoad'
             publicId={imageId}>
