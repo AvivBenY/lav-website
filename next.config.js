@@ -4,10 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     DB_PASS, DB_USER, DB_HOST, DB_NAME
-  }
-}
-
-module.exports = {
+  },
   images: {
     domains: [
       'res.cloudinary.com'

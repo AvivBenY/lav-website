@@ -6,11 +6,14 @@ const handler = async (req, res) => {
     //CRUD
     if (req.method === 'POST') {
         // Check if name, adress, contact is provided
-        const { adress, isGettingFood, contact } = req.body;
+        const { lavArea, lineNr, description, adress, isGettingFood, contact } = req.body;
         if (adress && isGettingFood) {
             console.log(req.body);
             try {
                 const family = new Family({
+                    lavArea,
+                    lineNr,
+                    description,
                     adress,
                     isGettingFood,
                     contact
@@ -41,7 +44,7 @@ const handler = async (req, res) => {
         const { id } = req.query;
         if (id) {
             const newInfo = req.body;
-            Family.findByIdAndUpdate(id, newInfo)
+            Family.findByIdAndUpdate(id, newInfo).populate('contact')
                 .then((data) => res.send(data)
                 ).catch((e) => res.send("error", e))
         }

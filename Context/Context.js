@@ -36,12 +36,12 @@ export default function ContextProvider({ children }) {
     return (
         <AppContext.Provider value={{
             familiesArr: familiesArr,
+            setFamiliesArr: setFamiliesArr,
             contactsArr: contactsArr,
             usersArr: usersArr,
         }}>
             {children}
         </AppContext.Provider>
-
     )
 }
 

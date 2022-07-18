@@ -1,37 +1,41 @@
 import React, { useEffect, useState } from 'react'
-import { Image, Transformation } from "cloudinary-react";
+import Image from "next/image"
+import styles from '../styles/Gallery.module.css'
 
+ export default function Gallery() {
 
-export default function Gallery() {
-  const [imageIds, setimageIds] = useState()
+   const [imageUrls, setimageUrls] = useState(null)
 
-  const loadImages = async () => {
-    try {
-      const res = await fetch('api/photo');
-      const data = await res.json();
-      console.log("DATA", data);
-      setimageIds(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    loadImages();
-  }, [])
-
-  return (
-    <div>Gallery<br />
-      {imageIds && imageIds.map((imageId, index) => {
-        <div>
-          <Image key={index}
-            cloudName='dlojdpg6j'
-            alt='didntLoad'
-            publicId={imageId}>
-
-          </Image>
-        </div>
-      })}
-    </div>
-  )
+   useEffect(() => {
+     const loadImages = async () => {
+       try {
+         const res = await fetch('api/photo');
+         // const res = await fetch('https:res.cloudinary.com/dlojdpg6j/image/');
+         const data = await res.json();
+         console.log("DATA", data);
+         setimageUrls(data);
+       } catch (error) {
+         console.log(error);
+       }
+     }
+     loadImages();
+   }, [])
+   
+    return (
+      <div className={styles.galleryDiv}>
+      
+       {
+         !!imageUrls && imageUrls.map(imageUrl => {
+           return (
+           <div key={imageUrl} className={styles.image}>
+             <a href={imageUrl}><Image
+               alt='cloudinary image'
+               src={imageUrl}
+               width={450}
+               height={300}
+             /></a>
+           </div>)
+         })}
+     </div>
+   )
 }

@@ -9,11 +9,10 @@ export const config = {
         },
     },
 }
+
 const handler = async (req, res) => {
 
-
     if (req.method === 'POST') {
-
         try {
             const fileStr = req.body.data;
             const uploadResponse = await cloudinary.uploader.upload(fileStr, {
@@ -24,7 +23,6 @@ const handler = async (req, res) => {
         } catch (error) {
             console.log(error);
             res.status(500).json({ msg: 'somthing went wrong' });
-
         }
     }
     else if (req.method === 'GET') {
@@ -33,7 +31,7 @@ const handler = async (req, res) => {
             .sort_by('public_id', 'desc')
             .max_results(30)
             .execute();
-        const publicIds = resources.map((file) => file.public_id);
+        const publicIds = resources.map((file) => file.secure_url);
         res.send(publicIds);
     }
 }

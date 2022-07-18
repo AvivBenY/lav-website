@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import BottomLinks from '../components/BottomLinks'
 import { SessionProvider } from "next-auth/react"
 import ContextProvider from '../Context/Context'
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (

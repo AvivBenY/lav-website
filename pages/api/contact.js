@@ -1,5 +1,6 @@
 import connectDB from '../../middleware/mongodb';
 import Contact from '../../models/contact';
+import Family from '../../models/family';
 
 const handler = async (req, res) => {
 
@@ -38,9 +39,14 @@ const handler = async (req, res) => {
         const { id } = req.query;
         if (id) {
             const newInfo = req.body;
-            Contact.findByIdAndUpdate(id, newInfo)
-                .then((data) => res.send(data)
-                ).catch((e) => res.send("error", e))
+            const family = await Family.findById(id).populate('contact');
+            console.log(family)
+            Contact.findByIdAndUpdate(family.contact._id, newInfo)
+                .then((data) => {
+                    console.log(data);
+                    res.send(data)
+                })
+                .catch((e) => res.send("error", e))
         }
     }
     else {

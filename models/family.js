@@ -5,10 +5,13 @@ const family = new Schema({
     lavArea: {
         type: String,
         required: true
-    },  
+    },
     lineNr: {
         type: Number,
         required: true
+    },
+    description: {
+        type: String,
     },
     adress: {
         type: String,
