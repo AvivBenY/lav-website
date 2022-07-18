@@ -9,7 +9,7 @@ export default function Header() {
 
     return (
         <nav className={styles.navBar}>
-            {session && <Link href='/adressBook' ><a className={styles.navBtn}>פרטי משפחות</a></Link>
+            {session && <Link href='/addressBook' ><a className={styles.navBtn}>פרטי משפחות</a></Link>
 }
             <Link href='/login' ><a className={styles.navBtn}>כניסת משתמש</a></Link>
             <Link href='/contactUs' ><a className={styles.navBtn}>צור קשר</a></Link>

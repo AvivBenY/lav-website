@@ -5,22 +5,23 @@ import Family from '../../models/family';
 const handler = async (req, res) => {
     //CRUD
     if (req.method === 'POST') {
-        // Check if name, adress, contact is provided
-        const { lavArea, lineNr, description, adress, isGettingFood, contact } = req.body;
-        if (adress && isGettingFood) {
+        // Check if name, address, contact is provided
+        const { lavArea, lineNr, description, address, isGettingFood, contact } = req.body;
+        if (address && isGettingFood) {
             console.log(req.body);
             try {
                 const family = new Family({
                     lavArea,
                     lineNr,
                     description,
-                    adress,
+                    address,
                     isGettingFood,
                     contact
                 });
-
+                
                 // Create new family
                 const familyCreated = await family.save();
+                console.log("test");
                 return res.status(200).send(familyCreated);
             } catch (error) {
                 return res.status(500).send(error.message);

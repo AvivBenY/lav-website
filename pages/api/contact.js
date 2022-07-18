@@ -7,6 +7,7 @@ const handler = async (req, res) => {
     if (req.method === 'POST') {
         // Check if name, phone is provided
         const { name, phone } = req.body;
+        console.log('test', name, phone);
         if (name && phone) {
             try {
                 const contact = new Contact({
@@ -39,8 +40,7 @@ const handler = async (req, res) => {
         const { id } = req.query;
         if (id) {
             const newInfo = req.body;
-            const family = await Family.findById(id).populate('contact');
-            console.log(family)
+            const family = await Family.findById(id).populate('contact');            
             Contact.findByIdAndUpdate(family.contact._id, newInfo)
                 .then((data) => {
                     console.log(data);

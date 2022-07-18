@@ -1,0 +1,33 @@
+.mainDiv{
+    height: 900px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    direction: rtl;
+}
+
+.form{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 1000px; 
+    width: 60%;
+    border: 1px solid black;
+    text-align:right;    
+}
+
+.formContent{
+    margin: 2%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableMainDiv{
+    width: 80%; 
+    height: 700px;
+    margin-top: 2%;    
+    direction: rtl;     
+}

@@ -13,7 +13,7 @@ const family = new Schema({
     description: {
         type: String,
     },
-    adress: {
+    address: {
         type: String,
         required: true
     },
