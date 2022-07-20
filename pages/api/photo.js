@@ -13,47 +13,78 @@ export const config = {
 const handler = async (req, res) => {
 
     if (req.method === 'POST') {
+        //CLOUDINARY
         try {
             const fileStr = req.body.data;
             const uploadResponse = await cloudinary.uploader.upload(fileStr, {
                 upload_preset: 'lav-website-upload'
             })
-            console.log(uploadResponse);
-            res.json({ msg: 'WORKINGGGG' })
+            const src = uploadResponse.secure_url;
+            if (src) {
+                console.log("SRC", src);
+                try {
+                    const photo = new Photo({
+                        src,
+                    });
+    
+                    // Create new photo
+                    const photoCreated = await photo.save();
+                    return res.status(200).send(photoCreated);
+                } catch (error) {
+                    return res.status(500).send(error.message);
+                }
+            } else {
+                res.status(422).send('data_incomplete');
+            }
         } catch (error) {
             console.log(error);
             res.status(500).json({ msg: 'somthing went wrong' });
         }
+        
+
+        } else if (req.method === 'GET') {
+            const { _id } = req.query;
+            if (_id) {
+                Photo.findById(_id).then((data) => res.send(data)).catch((e) => res.send("error", e));
+            } else {
+                Photo.find().then((data) => res.send(data)).catch((e) => res.send("error", e))
+            }
+        // else if (req.method === 'GET') {
+        //     const { resources } = await cloudinary.search
+        //         .expression('folder:lav')
+        //         .sort_by('public_id', 'desc')
+        //         // .max_results(30)
+        //         .execute();
+        //     const publicIds = resources.map((file) => file.secure_url);
+        //     res.send(publicIds);
+        // }
     }
-    else if (req.method === 'GET') {
-        const { resources } = await cloudinary.search
-            .expression('folder:lav')
-            .sort_by('public_id', 'desc')
-            .max_results(30)
-            .execute();
-        const publicIds = resources.map((file) => file.secure_url);
-        res.send(publicIds);
-    }
+    else if (req.method === 'DELETE') {
+                const { _id } = req.query;
+                if (_id) {
+                    Photo.findByIdAndRemove(_id).then((data) => res.send(data)).catch((e) => res.send("error", e))
+                }}
 }
+    export default connectDB(handler);
 
 //     if (req.method === 'POST') {
 //         // Check if src is provided
 //         const { src } = req.body;
-//         if (src) {
-//             try {
-//                 const photo = new Photo({
-//                     src,
-//                 });
+        // if (src) {
+        //     try {
+        //         const photo = new Photo({
+        //             src,
+        //         });
 
-//                 // Create new photo
-//                 const photoCreated = await photo.save();
-//                 return res.status(200).send(photoCreated);
-//             } catch (error) {
-//                 return res.status(500).send(error.message);
-//             }
-//         } else {
-//             res.status(422).send('data_incomplete');
-//         }
+        //         // Create new photo
+        //         const photoCreated = await photo.save();
+        //         return res.status(200).send(photoCreated);
+        //     } catch (error) {
+        //         return res.status(500).send(error.message);
+        //     }
+        // } else {
+        //     res.status(422).send('data_incomplete');
+        // }
 //     } else if (req.method === 'GET') {
 //         const { _id } = req.query;
 //         if (_id) {
@@ -81,5 +112,3 @@ const handler = async (req, res) => {
 
 // cloudinary.uploader.upload("/", function (error, result) { console.log(result, error) });
 
-
-export default connectDB(handler);

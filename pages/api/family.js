@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import connectDB from '../../middleware/mongodb';
 import Family from '../../models/family';
+import Contact from '../../models/contact';
 
 const handler = async (req, res) => {
     //CRUD
@@ -18,7 +19,7 @@ const handler = async (req, res) => {
                     isGettingFood,
                     contact
                 });
-                
+
                 // Create new family
                 const familyCreated = await family.save();
                 console.log("test");
@@ -39,7 +40,11 @@ const handler = async (req, res) => {
     } else if (req.method === 'DELETE') {
         const { id } = req.query;
         if (id) {
-            Family.findByIdAndDelete(id).then((data) => res.send(data)).catch((e) => ("error", e))
+            Family.findByIdAndDelete(id).then((data) => {
+               Contact.findByIdAndDelete(data.contact).then((d)=>console.log('DELETED', d));
+                res.send(data);
+            }
+            ).catch((e) => ("error", e))
         }
     } else if (req.method === 'PATCH') {
         const { id } = req.query;
