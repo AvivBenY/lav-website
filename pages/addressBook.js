@@ -15,7 +15,7 @@ export default function AdressBook() {
 
   return (
     <div className={styles.mainDiv}>
-      <button className={styles.addBtn} onClick={() => showForm()}>{addFamBtn ? b : a }</button>
+      <button className={styles.addBtn} onClick={() => showForm()}>{addFamBtn ? b : a}</button>
       {addFamBtn && <AddFamily />}
       <AddressBookCmp />
     </div>

@@ -1,8 +1,16 @@
+@import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css);
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+
+
 .mainDiv{
+    font-family: 'Open Sans Hebrew Condensed', serif;
+    font-weight:700;
+    direction: rtl;
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     color: whitesmoke;
     background-color: black;
@@ -10,9 +18,22 @@
     margin-top: 1%;
 
 }
+
+.toggleBtn{    
+    font-size: 25px; 
+    top:50%;
+    background-color: #555555;
+    color: #fff;
+    border-radius:10px; 
+    padding:15px; 
+    margin-bottom: 5%;   
+}
+.toggleBtn:active {
+    background-color: gray;
+}
 .infoDiv{
     width: 60%;
-    height: 600px;
+    height: 500px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

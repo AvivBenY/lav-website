@@ -15,21 +15,29 @@ const handler = async (req, res) => {
     if (req.method === 'POST') {
         //CLOUDINARY
         try {
-            const fileStr = req.body.data;
-            const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-                upload_preset: 'lav-website-upload'
-            })
-            const src = uploadResponse.secure_url;
-            if (src) {
-                console.log("SRC", src);
+            const images = req.body.data; // array of images
+            let srcs = []
+            for (const fileStr of images) {
+                const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+                    upload_preset: 'lav-website-upload'
+                })
+
+                srcs.push(uploadResponse.secure_url)
+            }
+            if (srcs.length > 0) {
+                console.log("SRC", srcs);
                 try {
-                    const photo = new Photo({
-                        src,
-                    });
-    
+                    let dbImages = []
+                    for (const src of srcs) {
+
+                        const photo = new Photo({
+                            src,
+                        });
+                        dbImages.push(await photo.save())
+                    }
+
                     // Create new photo
-                    const photoCreated = await photo.save();
-                    return res.status(200).send(photoCreated);
+                    return res.status(200).send(dbImages);
                 } catch (error) {
                     return res.status(500).send(error.message);
                 }
@@ -40,15 +48,25 @@ const handler = async (req, res) => {
             console.log(error);
             res.status(500).json({ msg: 'somthing went wrong' });
         }
-        
 
-        } else if (req.method === 'GET') {
-            const { _id } = req.query;
-            if (_id) {
-                Photo.findById(_id).then((data) => res.send(data)).catch((e) => res.send("error", e));
-            } else {
-                Photo.find().then((data) => res.send(data)).catch((e) => res.send("error", e))
+
+    } else if (req.method === 'GET') {
+        const { _id } = req.query;
+        if (_id) {
+            try {
+                const photo = await Photo.findById(_id);
+                res.send(photo);
+            } catch (e) {
+                res.send("error", e)
             }
+        } else {
+            try {
+                const photo = await Photo.find();
+                res.send(photo);
+            } catch (e) {
+                res.send("error", e);
+            }
+        }
         // else if (req.method === 'GET') {
         //     const { resources } = await cloudinary.search
         //         .expression('folder:lav')
@@ -60,55 +78,15 @@ const handler = async (req, res) => {
         // }
     }
     else if (req.method === 'DELETE') {
-                const { _id } = req.query;
-                if (_id) {
-                    Photo.findByIdAndRemove(_id).then((data) => res.send(data)).catch((e) => res.send("error", e))
-                }}
+        const { _id } = req.query;
+        if (_id) {
+            try {
+                const photo = await Photo.findByIdAndRemove(_id);
+                res.send(photo);
+            } catch (e) {
+                res.send("error", e);
+            }
+        }
+    }
 }
-    export default connectDB(handler);
-
-//     if (req.method === 'POST') {
-//         // Check if src is provided
-//         const { src } = req.body;
-        // if (src) {
-        //     try {
-        //         const photo = new Photo({
-        //             src,
-        //         });
-
-        //         // Create new photo
-        //         const photoCreated = await photo.save();
-        //         return res.status(200).send(photoCreated);
-        //     } catch (error) {
-        //         return res.status(500).send(error.message);
-        //     }
-        // } else {
-        //     res.status(422).send('data_incomplete');
-        // }
-//     } else if (req.method === 'GET') {
-//         const { _id } = req.query;
-//         if (_id) {
-//             Photo.findById(_id).then((data) => res.send(data)).catch((e) => res.send("error", e));
-//         } else {
-//             Photo.find().then((data) => res.send(data)).catch((e) => res.send("error", e))
-//         }
-//     } else if (req.method === 'DELETE') {
-//         const { _id } = req.query;
-//         if (_id) {
-//             Photo.findByIdAndRemove(_id).then((data) => res.send(data)).catch((e) => res.send("error", e))
-//         }
-//     } else if (req.method === 'PATCH') {
-//         const { _id } = req.query;
-//         if (_id) {
-//             const newInfo = req.body;
-//             Photo.findByIdAndUpdate(_id, newInfo)
-//                 .then((data) => res.send(data)
-//                 ).catch((e) => res.send("error", e))
-//         }
-//     } else {
-//         res.status(422).send('req_method_not_supported');
-//     }
-// };
-
-// cloudinary.uploader.upload("/", function (error, result) { console.log(result, error) });
-
+export default connectDB(handler);

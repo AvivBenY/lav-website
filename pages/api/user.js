@@ -28,22 +28,41 @@ const handler = async (req, res) => {
     } else if (req.method === 'GET') {
         const { id } = req.query;
         if (id !== undefined) {
-            User.findById(id).then((data) => { res.send(data) }).catch((e) => ("error", e))
+            try {
+                const user = await User.findById(id)
+                res.send(user)
+            } catch (e) {
+                res.send("error", e)
+            }
         } else {
-            User.find().then((data) => { res.send(data) }).catch((e) => ("error", e))
+            try {
+                const user = await User.find();
+                res.send(user);
+            } catch (e) {
+                res.send("error", e);
+            }
         }
     } else if (req.method === 'DELETE') {
         const { id } = req.query;
         if (id) {
-            User.findByIdAndRemove(id).then((data) => res.send(data)).catch((e) => ("error", e))
+            try {
+                const user = await User.findByIdAndRemove(id);
+                res.send(user)
+            } catch (error) {
+                res.send("error", e)
+            }
         }
     } else if (req.method === 'PATCH') {
         const { id } = req.query;
         if (id) {
-            const newInfo = req.body;
-            User.findByIdAndUpdate(id, newInfo)
-                .then((data) => res.send(data)
-                ).catch((e) => res.send("error", e))
+            try {
+                const newInfo = req.body;
+                const user = await User.findByIdAndUpdate(id, newInfo);
+                res.send(user);
+
+            } catch (e) {
+                res.send("error", e)
+            }
         }
     } else {
         res.status(422).send('req_method_not_supported');

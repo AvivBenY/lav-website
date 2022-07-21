@@ -17,7 +17,8 @@ export default function AddressBook() {
   const columns = [
     { field: 'lavArea', headerName: 'איזור', width: 100, editable: true },
     { field: 'lineNr', headerName: 'קו', width: 70, editable: true },
-    { field: 'address', headerName: 'כתובת', type: 'string', width: 250, renderCell: (cellValues) => {
+    {
+      field: 'address', headerName: 'כתובת', type: 'string', width: 250, renderCell: (cellValues) => {
         return (
           <div
             style={{
@@ -73,7 +74,7 @@ export default function AddressBook() {
   const handleClick = async (e, c) => {
     console.log("event", e, "cellValues", c);
     try {
-      const response = await fetch(`/api/family?id=${c.id}`, {
+      const response = await fetch(`/api/family?_id=${c.id}`, {
         method: 'DELETE',
       })
       const data = await response.json();
@@ -97,7 +98,7 @@ export default function AddressBook() {
 
 
   const patchFamily = async (id, val, field) => {
-    const response = await fetch(`/api/family?id=${id}`, {
+    const response = await fetch(`/api/family?_id=${id}`, {
       method: 'PATCH',
       body: JSON.stringify({ [field]: val }),
       headers: {
@@ -112,7 +113,7 @@ export default function AddressBook() {
   const patchContact = async (id, val, field) => {
     console.log(id);
     try {
-      const response = await fetch(`/api/contact?id=${id}`, {
+      const response = await fetch(`/api/contact?_id=${id}`, {
         method: 'PATCH',
         body: JSON.stringify({ [field]: val }),
         headers: {

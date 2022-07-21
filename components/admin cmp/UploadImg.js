@@ -6,18 +6,20 @@ import styles from '../../styles/UploadImg.module.scss'
 export default function UploadImg() {
     const [fileInputState, setFileInputState] = useState('');
     const [selectedFile, setSelectedFile] = useState('');
-    const [previewSource, setPreviewSource] = useState('');
+    const [previewSource, setPreviewSource] = useState([]);
     
     const handleFileInputChange = (e) => {
-        const file = e.target.files[0];
-        previewFile(file);
+        const files = e.target.files;
+        for (const file of files) {            
+            previewFile(file);
+        }
     }
 
     const previewFile = (file) =>{
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () =>{
-            setPreviewSource(reader.result);
+            setPreviewSource(p => [...p, reader.result]);
         }
     }
 
@@ -29,14 +31,15 @@ export default function UploadImg() {
         uploadImg(previewSource);
     }
 
-    const uploadImg = async (base64EncodedImage) => {
-        console.log(base64EncodedImage);
+    const uploadImg = async (imagesArray) => {
+        console.log(imagesArray);
         try {
             await fetch('/api/photo', {
                 method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
+                body: JSON.stringify({ data: imagesArray }),
                 headers: { 'Content-type': 'application/json' }
             })
+            location.reload();
         } catch (error) {
             console.log(error);
         }
@@ -48,6 +51,7 @@ export default function UploadImg() {
     <div>UploadImg <br/>
     <form onSubmit={handleSubmitFile}>
         <input 
+        multiple
         type='file' name='image' 
         onChange={handleFileInputChange} 
         value={fileInputState} 
@@ -57,9 +61,9 @@ export default function UploadImg() {
         // className={styles.btn} 
         type='submit' >Submit</button>
     </form>
-    {previewSource && (
-        <Image src={previewSource} alt='loadedImg' width={300} height={300}/>
-    )}
+    {previewSource.length > 0 && previewSource?.map( src =>(
+        <Image key={src} src={src} alt='loadedImg' width={300} height={300}/>
+    ))}
     </div>
 
 

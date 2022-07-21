@@ -16,6 +16,23 @@
     border: 1px solid black;
     text-align:right;    
 }
+.vForm{
+    font-size: large;
+    direction: rtl;
+    color: black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 400px; 
+    width: 55%;
+    border: 1px solid black;
+    margin-bottom: 5%;
+    padding-bottom: 8%;
+    padding-top: 8%;
+    text-align:right;    
+}
 
 .formContent{
     margin: 2%;
@@ -30,6 +47,13 @@ max-width: 100%;
 max-height: 100%;
 display: flex;
 flex-direction: column;
+}
+.volContent{
+width: 40%;
+height: 40%;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
 }
 
 

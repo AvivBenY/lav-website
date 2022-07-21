@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import settings from "../setting/setting-development";
 
 export default function Home() {
 
@@ -47,13 +48,18 @@ export default function Home() {
         <Image className={styles.mainImg} src='/newHomePic.png' alt="" width={1700} height={600} />
       </div>
       <div className={styles.aboutDiv}>
-        <Link href='/contactUs'><div className={styles.bottomLink}>
+        <Link href='/about'><div className={styles.bottomLink}>
           <p>ל.א.ו הוא ארגון ללא מטרות רווח שהוקם<br />כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
-            <br /><br /> <a href="href='/contactUs'">לחצו כאן לסיפור המלא שלנו</a>
+            <br /><br /> <span>לחצו כאן לסיפור המלא שלנו</span>
           </p>
         </div>
         </Link>
-      </div>
-    </div>
+      </div >
+      <script
+        src={`https://maps.googleapis.com/maps/api/js?key=${settings?.googleMaps?.apiKey}&callback=initMap&libraries=&v=weekly`}
+        async
+        defer
+      ></script>
+    </div >
   )
 }

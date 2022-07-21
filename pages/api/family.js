@@ -24,35 +24,56 @@ const handler = async (req, res) => {
                 const familyCreated = await family.save();
                 console.log("test");
                 return res.status(200).send(familyCreated);
+                resolve();
             } catch (error) {
                 return res.status(500).send(error.message);
+                resolve();
             }
         } else {
             res.status(422).send('data_incomplete');
+            resolve();
         }
     } else if (req.method === 'GET') {
-        const { id } = req.query;
-        if (id) {
-            Family.findById(id).populate('contact').then((data) => { res.send(data) }).catch((e) => ("error", e))
+        const { _id } = req.query;
+        if (_id) {
+            try {
+                const family = await Family.findById(_id).populate('contact');
+                res.send(family);
+            } catch (e) {
+                res.send("error", e);
+            }
+
         } else {
-            Family.find().populate('contact').then((data) => { res.send(data) }).catch((e) => ("error", e))
+            try {
+                const family = await Family.find().populate('contact');
+                res.send(family);
+            } catch (e) {
+                res.send("error", e)
+            }
         }
     } else if (req.method === 'DELETE') {
-        const { id } = req.query;
-        if (id) {
-            Family.findByIdAndDelete(id).then((data) => {
-               Contact.findByIdAndDelete(data.contact).then((d)=>console.log('DELETED', d));
-                res.send(data);
+        const { _id } = req.query;
+        if (_id) {
+            try {
+                const family = await Family.findByIdAndDelete(_id);
+                const contact = await Contact.findByIdAndDelete(family.contact._id)
+                res.send(family)
+                console.log('deleted', family, contact)
+            } catch (e) {
+                res.send("error", e)
             }
-            ).catch((e) => ("error", e))
         }
     } else if (req.method === 'PATCH') {
-        const { id } = req.query;
-        if (id) {
-            const newInfo = req.body;
-            Family.findByIdAndUpdate(id, newInfo).populate('contact')
-                .then((data) => res.send(data)
-                ).catch((e) => res.send("error", e))
+        const { _id } = req.query;
+        if (_id) {
+
+            try {
+                const newInfo = req.body;
+                const family = await Family.findByIdAndUpdate(_id, newInfo).populate('contact')
+                res.send(family)
+            } catch (e) {
+                res.send("error", e)
+            }
         }
     } else {
         res.status(422).send('req_method_not_supported');

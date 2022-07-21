@@ -1,23 +1,23 @@
 import connectDB from '../../middleware/mongodb';
-import Contact from '../../models/contact';
-import Family from '../../models/family';
+import Volunteer from '../../models/volunteer';
 
 const handler = async (req, res) => {
 
     if (req.method === 'POST') {
         // Check if name, phone is provided
-        const { name, phone } = req.body;
+        const { name, phone, description } = req.body;
         console.log('test', name, phone);
         if (name && phone) {
             try {
-                const contact = new Contact({
+                const volunteer = new Volunteer({
                     name,
                     phone,
+                    description
                 });
 
-                // Create new contact
-                const contactCreated = await contact.save();
-                return res.status(200).send(contactCreated);
+                // Create new volunteer
+                const volunteerCreated = await volunteer.save();
+                return res.status(200).send(volunteerCreated);
             } catch (error) {
                 return res.status(500).send(error.message);
             }
@@ -28,15 +28,15 @@ const handler = async (req, res) => {
         const { _id } = req.query;
         if (_id) {
             try {
-                const contact = await Contact.findById(_id)
-                res.send(contact);
+                const volunteer = await Volunteer.findById(_id)
+                res.send(volunteer);
             } catch (e) {
                 res.send("error", e);
             }
         } else {
             try {
-                const contact = await Contact.find()
-                res.send(contact)
+                const volunteer = await Volunteer.find()
+                res.send(volunteer)
             } catch (e) {
                 res.send("error", e)
             }
@@ -45,8 +45,8 @@ const handler = async (req, res) => {
         const { _id } = req.query;
         if (_id) {
             try {
-                const contact = await Contact.findByIdAndRemove(_id);
-                res.send(contact);
+                const volunteer = await Volunteer.findByIdAndRemove(_id);
+                res.send(volunteer);
             } catch (e) {
                 res.send("error", e);
             }
@@ -56,10 +56,9 @@ const handler = async (req, res) => {
             const { _id } = req.query;
             const newInfo = req.body;
             if (_id) {
-                const family = await Family.findById(_id).populate('contact');
-                const contact = await Contact.findByIdAndUpdate(family.contact._id, newInfo)
-                console.log(contact);
-                res.send(contact)
+                const volunteer = await Volunteer.findByIdAndUpdate(family.volunteer._id, newInfo)
+                console.log(volunteer);
+                res.send(volunteer)
             }
         } catch (e) {
             res.send("error", e)

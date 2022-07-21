@@ -15,9 +15,6 @@ const [name, setName] = useState('')
 const [phone, setPhone] = useState('')
   
 
-
-
-
   useEffect(() => {
     fetch("/api/family")
       .then((res) => res.json())
