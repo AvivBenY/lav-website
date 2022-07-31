@@ -4,6 +4,7 @@ import Link from "next/link"
 export default function logout(){
 
 return(
+    
 <Link href='/index' ><button onClick={() => signOut({ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })}>Sign out</button></Link>
 )
 }
