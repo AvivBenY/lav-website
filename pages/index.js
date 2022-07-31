@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import settings from "../setting/setting-development";
 
 export default function Home() {
 

@@ -3,18 +3,15 @@
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 
 .container {
+  
   align-content: center;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   font-family: 'Open Sans Hebrew Condensed', serif;
-
 }
 
-.font{
-  font-family: 'Open Sans Hebrew Condensed', serif;
-}
 .footer {
   direction: rtl;
   display: flex;
