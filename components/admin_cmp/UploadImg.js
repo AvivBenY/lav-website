@@ -48,7 +48,7 @@ export default function UploadImg() {
     return (
 
 
-    <div>UploadImg <br/>
+    <div className={styles.mainDiv}>העלאת תמונה <br/><br/><br/>
     <form onSubmit={handleSubmitFile}>
         <input 
         multiple
@@ -58,7 +58,7 @@ export default function UploadImg() {
         // className={styles.form-input}
         />
         <button 
-        // className={styles.btn} 
+        className={styles.btn} 
         type='submit' >Submit</button>
     </form>
     {previewSource.length > 0 && previewSource?.map( src =>(

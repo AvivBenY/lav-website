@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 const volunteer = new Schema({
 
+    lavArea: {
+        type: String,
+    },
     name: {
         type: String,
         required: true

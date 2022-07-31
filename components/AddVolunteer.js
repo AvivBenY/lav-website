@@ -8,6 +8,7 @@ export default function AddVolunteer() {
     const { familiesArr, setFamiliesArr } = useInfo()
 
     const [description, setDescription] = useState('')
+    const [lavArea, setLavArea] = useState('')
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [isSent, setIsSent] = useState(false)
@@ -26,6 +27,7 @@ export default function AddVolunteer() {
             e.preventDefault()
             console.log('e', e);
             const volunteer = {
+                lavArea: e.target.lavArea.value,
                 name: e.target.name.value,
                 phone: e.target.phone.value,
                 phone: e.target.description.value,
@@ -39,6 +41,7 @@ export default function AddVolunteer() {
             })
             await res.json();
             setDescription('');
+            setLavArea('');
             setName('');
             setPhone('');
             setIsSent(!isSent)
@@ -52,6 +55,8 @@ export default function AddVolunteer() {
             <form className={styles.formContent} onSubmit={(e) => handleSubmit(e)} >
                 <div className={styles.volContent}>
                     <p>פרטי התקשרות:</p>
+                    <FormLabel htmlFor="lavArea">:איזור</FormLabel>
+                    <TextField value={lavArea} onChange={(e) => setLavArea(e.target.value)} required id="lavArea" type="text" name='lavArea' />
                     <FormLabel htmlFor="name">:שם</FormLabel>
                     <TextField value={name} onChange={(e) => setName(e.target.value)} required id="name" type="text" name='name' />
                     <FormLabel htmlFor="phone">:טלפון</FormLabel>

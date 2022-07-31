@@ -5,11 +5,12 @@ const handler = async (req, res) => {
 
     if (req.method === 'POST') {
         // Check if name, phone is provided
-        const { name, phone, description } = req.body;
+        const { name, phone, description, lavArea } = req.body;
         console.log('test', name, phone);
         if (name && phone) {
             try {
                 const volunteer = new Volunteer({
+                    lavArea,
                     name,
                     phone,
                     description
@@ -56,7 +57,7 @@ const handler = async (req, res) => {
             const { _id } = req.query;
             const newInfo = req.body;
             if (_id) {
-                const volunteer = await Volunteer.findByIdAndUpdate(family.volunteer._id, newInfo)
+                const volunteer = await Volunteer.findByIdAndUpdate(_id, newInfo)
                 console.log(volunteer);
                 res.send(volunteer)
             }

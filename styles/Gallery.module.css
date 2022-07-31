@@ -1,18 +1,37 @@
 .galleryDiv{
+  border-radius: 5%;
     margin-top: 2%;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    align-content: space-around;
+    align-content: center;
     width: 90%;
+    height: 800px;
     justify-content: space-evenly;
+    background-color: black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: whitesmoke;
 }
 
 .image{
   border: 1px solid #ccc;
   float: left;
-  margin: 5px
+  margin: 5px;
+  width: 150;
+  height: 150;
 }
 
 .image:hover {
     cursor: pointer;
   }
+
+.slide{
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.removeBtn{
+  width: 25px;
+}

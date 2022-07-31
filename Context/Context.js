@@ -8,13 +8,31 @@ export function useInfo() {
 }
 
 export default function ContextProvider({ children }) {
-
+    const [isAdmin, setIsAdmin] = useState(false)
     const [familiesArr, setFamiliesArr] = useState([])
+    const [volunteersArr, setVolunteersArr] = useState([])
     const [contactsArr, setContactsArr] = useState([])
     const [usersArr, setUsersArr] = useState([])
+    const [photos, setPhotos] = useState([])
+
+    useEffect(() => {
+        fetch('api/photo')
+            .then((res) => res.json())
+            .then((photos) => {
+                setPhotos(photos)
+            });
+    }, [])
 
     useEffect(() => {
         fetch("/api/family")
+            .then((res) => res.json())
+            .then((families) => {
+                setFamiliesArr(families)
+            });
+    }, [])
+
+    useEffect(() => {
+        fetch("/api/volunteer")
             .then((res) => res.json())
             .then((families) => {
                 setFamiliesArr(families)
@@ -35,6 +53,12 @@ export default function ContextProvider({ children }) {
 
     return (
         <AppContext.Provider value={{
+            photos: photos,
+            setPhotos: setPhotos,
+            usersArr: usersArr,
+            setUsersArr: setUsersArr,
+            volunteersArr: volunteersArr,
+            setVolunteersArr: setVolunteersArr,
             familiesArr: familiesArr,
             setFamiliesArr: setFamiliesArr,
             contactsArr: contactsArr,

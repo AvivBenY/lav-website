@@ -1,3 +1,23 @@
+@import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css);
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+
+  
+  .mainDiv{
+    font-family: 'Open Sans Hebrew Condensed', serif;
+    font-weight: bold;
+    font-size: larger;
+    position: sticky;
+    top: 0;
+    left:0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+
+  }
   .navBar{
     position: sticky;
     top: 0;
@@ -10,7 +30,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    z-index: 1000000;
   }
 
   .navBtn {    
@@ -59,4 +78,24 @@
       width: 30px;
       height: 30px;
       border-color: #222222;
+  }
+  #flex { display: flex; flex-direction: row; }
+  .navIndex { order: 1; }
+  .navLogo { order: 2; }
+
+  .subHeader{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    align-self: flex-end;
+    display: flex;
+    margin: 1% 10% 1% 0;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    width: 15%;
+    height: 50px;
+    font-size: larger;
+    background-color: black;
+    border: 1px solid black;
+    color: whitesmoke;
   }

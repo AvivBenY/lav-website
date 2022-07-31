@@ -1,24 +1,54 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import styles from '../styles/Header.module.css'
-import { useSession } from "next-auth/react"
-
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect } from "react";
+import styles from "../styles/Header.module.css";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
 export default function Header() {
-    const { data: session, status: loading } = useSession();
+  const { data: session, status: loading } = useSession();
+  const [subHeader, setSubHeader] = useState("");
 
-    return (
-        <nav className={styles.navBar}>
-            {session && <Link href='/addressBook' ><a className={styles.navBtn}>פרטי משפחות</a></Link>
-            }
-            <Link href='/login' ><a className={styles.navBtn}>כניסת משתמש</a></Link>
-            <Link href='/contactUs' ><a className={styles.navBtn}>צור קשר</a></Link>
-            <Link href='/gallery' ><a className={styles.navBtn}>גלריה</a></Link>
-            <Link href='/HowToHelp'><a className={styles.navBtn}>אני רוצה לעזור</a></Link>
-            <Link href='/about' ><a className={styles.navBtn}>אודות</a></Link>
-            <Link href='/' ><a className={styles.navBtn}>
-                <Image src='/logo.png' alt="" width={50} height={50} />
-            </a></Link>
-        </nav>
-    )
+  useEffect(() => {
+    setSubHeader('דף הבית');
+  }, [])
+ 
+
+  return (
+    <div className={styles.mainDiv}>
+      <nav className={styles.navBar}>
+        {session && (
+          <Link href="/addressBook"><a onClick={()=>setSubHeader('פרטי משפחות')} className={styles.navBtn}>פרטי משפחות</a>
+          </Link>
+        )}
+        <Link href="/login"><a onClick={()=>setSubHeader('כניסת משתמש')} className={styles.navBtn}>
+            כניסת משתמש
+          </a>
+        </Link>
+        <Link href="/contactUs"><a onClick={()=>setSubHeader('צור קשר')} className={styles.navBtn}>
+            צור קשר
+          </a>
+        </Link>
+        <Link href="/gallery"><a onClick={()=>setSubHeader('גלריה')} className={styles.navBtn}>
+            גלריה
+          </a>
+        </Link>
+        <Link href="/HowToHelp"><a onClick={()=>setSubHeader('איך אפשר לעזור')} className={styles.navBtn}>
+            אני רוצה לעזור
+          </a>
+        </Link>
+        <Link href="/about"><a onClick={()=>setSubHeader('אודות הארגון')}  className={styles.navBtn}>
+            אודות
+          </a>
+        </Link>
+        <Link href="/"><a onClick={()=>setSubHeader('דף הבית')} className={styles.navBtn}>
+            <Image src="/logo.png" alt="" width={50} height={50} />
+          </a>
+        </Link>
+      </nav>
+      <div className={styles.subHeader}>
+        <div className={styles.navIndex}>{subHeader}</div>
+          <Image className={styles.navLogo} src='/logo.png' alt='logo' width={45} height={45}/>
+      </div>
+    </div>
+  );
 }

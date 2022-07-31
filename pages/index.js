@@ -35,8 +35,6 @@ export default function Home() {
     })
   }, [])
 
-
-
   return (
     <div className={styles.container}>
       <Head>
@@ -55,11 +53,7 @@ export default function Home() {
         </div>
         </Link>
       </div >
-      <script
-        src={`https://maps.googleapis.com/maps/api/js?key=${settings?.googleMaps?.apiKey}&callback=initMap&libraries=&v=weekly`}
-        async
-        defer
-      ></script>
+
     </div >
   )
 }
