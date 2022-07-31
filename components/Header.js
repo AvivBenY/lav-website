@@ -20,10 +20,16 @@ export default function Header() {
           <Link href="/addressBook"><a onClick={()=>setSubHeader('פרטי משפחות')} className={styles.navBtn}>פרטי משפחות</a>
           </Link>
         )}
+        {!session ? 
         <Link href="/login"><a onClick={()=>setSubHeader('כניסת משתמש')} className={styles.navBtn}>
             כניסת משתמש
           </a>
-        </Link>
+        </Link> : 
+        <Link href="/logout"><a onClick={()=>setSubHeader('התנתקות')} className={styles.navBtn}>
+         התנתקות
+      </a>
+    </Link> 
+        }
         <Link href="/contactUs"><a onClick={()=>setSubHeader('צור קשר')} className={styles.navBtn}>
             צור קשר
           </a>
