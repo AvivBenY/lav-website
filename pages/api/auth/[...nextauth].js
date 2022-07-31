@@ -1,9 +1,6 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
-import { signIn } from "next-auth/react"
-import { gridStringOrNumberComparator } from "@mui/x-data-grid"
 import connectDB from '../../../middleware/mongodb'
 import User from "../../../models/user"
 
