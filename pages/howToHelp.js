@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import AddVolunteer from '../components/AddVolunteer'
 import styles from '../styles/EventInformation.module.css'
-export default function HowToHelp() {
-    const [toggleForm, setToggleForm] = useState(false)
+export default function howToHelp() {
+    let toggleForm = false;
+    // const [toggleForm, setToggleForm] = useState(false)
     return (
         <div className={styles.mainDiv}>
             <div className={styles.header}>הצטרפו למשפחה!</div>
@@ -22,7 +23,7 @@ export default function HowToHelp() {
                     <p>כיכר רמבם/אורדע רמת גן <br /> 20:00 - 23:00</p>
                 </div>                
             </div>
-            <button className={styles.toggleBtn} onClick={() => setToggleForm(!toggleForm)}>צרו איתי קשר !</button>
+            <button className={styles.toggleBtn} onClick={() => toggleForm = !toggleForm}>צרו איתי קשר !</button>
             {toggleForm && <AddVolunteer />}
         </div>
     )

@@ -32,7 +32,7 @@ export default function Header() {
             גלריה
           </a>
         </Link>
-        <Link href="/HowToHelp"><a onClick={()=>setSubHeader('איך אפשר לעזור')} className={styles.navBtn}>
+        <Link href="/howToHelp"><a onClick={()=>setSubHeader('איך אפשר לעזור')} className={styles.navBtn}>
             אני רוצה לעזור
           </a>
         </Link>
