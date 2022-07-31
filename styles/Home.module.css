@@ -1,5 +1,5 @@
-/* @import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css); */
-/* @import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css); */
+@import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css);
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 
 .container {
@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Open Sans Hebrew Condensed', serif;
+
 }
 
 .font{
