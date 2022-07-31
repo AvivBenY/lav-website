@@ -12,25 +12,6 @@
   font-family: 'Open Sans Hebrew Condensed', serif;
 }
 
-.footer {
-  direction: rtl;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 0;
-}
-
-.logo {
-    opacity: 50%;
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
 .mainImg{
   z-index:-1;
 }
