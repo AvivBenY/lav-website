@@ -4,7 +4,7 @@ import "../styles/UploadImg.module.scss";
 import styles from '../styles/Gallery.module.css'
 import Image from 'next/image';
 import { useInfo } from '../Context/Context'
-import UploadImg from './admin_cmp/UploadImg'
+import UploadImg from './adminCmp/UploadImg'
 import { useSession } from "next-auth/react"
 
 export default function Gallery() {

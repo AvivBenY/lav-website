@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import styles from '../styles/AddressBook.module.css'
 import '../styles/AddressBook.module.css'
-import AddressBookCmp from '../components/admin_cmp/AddressBookCmp'
-import AddFamily from '../components/admin_cmp/AddFamily'
-import VolunteersTbl from '../components/admin_cmp/VolunteersTbl'
-import AddUser from '../components/admin_cmp/AddUser'
+import AddressBookCmp from '../components/adminCmp/AddressBookCmp'
+import AddFamily from '../components/adminCmp/AddFamily'
+import VolunteersTbl from '../components/adminCmp/VolunteersTbl'
+import AddUser from '../components/adminCmp/AddUser'
 
 export default function AdressBook() {
   const [addUserBtn, setAddUserBtn] = useState(false)
