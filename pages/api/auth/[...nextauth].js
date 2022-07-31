@@ -5,6 +5,7 @@ import connectDB from '../../../middleware/mongodb'
 import User from "../../../models/user"
 
 export default NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
@@ -25,7 +26,8 @@ export default NextAuth({
         token.accessToken = account.access_token
       }
       return token
-    },
+    }
+    ,
     async signIn(user) {
       await connectDB();
       try {
