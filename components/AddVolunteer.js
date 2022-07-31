@@ -5,7 +5,6 @@ import styles from '../styles/AddressBook.module.css'
 import { FormLabel, Button, TextField } from '@mui/material';
 
 export default function AddVolunteer() {
-    const { familiesArr, setFamiliesArr } = useInfo()
 
     const [description, setDescription] = useState('')
     const [lavArea, setLavArea] = useState('')
@@ -13,14 +12,6 @@ export default function AddVolunteer() {
     const [phone, setPhone] = useState('')
     const [isSent, setIsSent] = useState(false)
 
-
-    //   useEffect(() => {
-    //     fetch("/api/family")
-    //       .then((res) => res.json())
-    //       .then((families) => {
-    //         setFamiliesArr(families)
-    //       });
-    //   }, [familiesArr])
 
     const handleSubmit = async (e) => {
         try {
