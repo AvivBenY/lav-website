@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { useSession } from "next-auth/react"
 
 export default function Home() {
 
@@ -11,9 +10,6 @@ export default function Home() {
   const [contactsArr, setContactsArr] = useState([])
   const [usersArr, setUsersArr] = useState([])
 
-  const { data: session, status: status } = useSession();
-
-  console.log("session", session, "status", status);
 
   useEffect(() => {
     fetch("/api/family")
