@@ -5,7 +5,8 @@ export default function logout(){
 
 return(
     
-<Link href='/index' ><button onClick={() => 
-signOut()}>Sign out</button></Link>
+<button onClick={() => signOut()}>Sign out</button>
 )
 }
+
+// signOut({ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })}>Sign out</button></Link>
