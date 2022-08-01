@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import BottomLinks from '../components/BottomLinks'
 import { SessionProvider } from "next-auth/react"
 import ContextProvider from '../Context/Context'
+import DropDownMenu from '../components/DropDownMenu'
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "@glidejs/glide/src/assets/sass/glide.theme.scss";
 import Head from 'next/head';
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             <link rel="shortcut icon" href="/logo.png" />
           </Head>
           <Header />
+          <DropDownMenu/>
           <Component {...pageProps} />
           <BottomLinks />
         </ContextProvider>
