@@ -1,15 +1,8 @@
-import { signOut } from "next-auth/react"
-import styles from '../styles/SignOut.module.css'
-import { useSession } from "next-auth/react"
+import React from 'react'
+import Logout from '../components/Logout'
 
-export default function Logout(){
-
-    const { data: session } = useSession();
-    
-return(
-    <div>
-        <p>{session.user.name}</p>
-        <button className={styles.signOutBtn} onClick={() => 
-        signOut({ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })}>Sign out</button>
-    </div>
-)}
+export default function logout() {
+  return (
+   <Logout/>
+  )
+}
