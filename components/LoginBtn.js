@@ -1,7 +1,38 @@
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from "next/image";
 import styles from '../styles/SignOut.module.css'
+import { useEffect, useState } from 'react'
+
 export default function LoginBtn() {
+
+    const [familiesArr, setFamiliesArr] = useState([])
+    const [contactsArr, setContactsArr] = useState([])
+    const [usersArr, setUsersArr] = useState([])
+  
+  
+    useEffect(() => {
+      fetch("/api/family")
+        .then((res) => res.json())
+        .then((families) => {
+          setFamiliesArr(families)
+          console.log("fam", families);
+        });
+    }, [])
+  
+    useEffect(() => {
+      fetch('/api/contact').then((res) => res.json()).then((contacts) => {
+        setContactsArr(contacts)
+        console.log("contacts", contacts);
+      });
+    }, [])
+  
+    useEffect(() => {
+      fetch('/api/user').then((res) => res.json()).then((users) => {
+        setUsersArr(users)
+        console.log("users", users);
+      })
+    }, [])
+
     const { data: session, status: loading } = useSession();
     console.log(session, loading);
     return (

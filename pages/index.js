@@ -6,33 +6,34 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
 
-  const [familiesArr, setFamiliesArr] = useState([])
-  const [contactsArr, setContactsArr] = useState([])
-  const [usersArr, setUsersArr] = useState([])
+
+  // const [familiesArr, setFamiliesArr] = useState([])
+  // const [contactsArr, setContactsArr] = useState([])
+  // const [usersArr, setUsersArr] = useState([])
 
 
-  useEffect(() => {
-    fetch("/api/family")
-      .then((res) => res.json())
-      .then((families) => {
-        setFamiliesArr(families)
-        console.log("fam", families);
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch("/api/family")
+  //     .then((res) => res.json())
+  //     .then((families) => {
+  //       setFamiliesArr(families)
+  //       console.log("fam", families);
+  //     });
+  // }, [])
 
-  useEffect(() => {
-    fetch('/api/contact').then((res) => res.json()).then((contacts) => {
-      setContactsArr(contacts)
-      console.log("contacts", contacts);
-    });
-  }, [])
+  // useEffect(() => {
+  //   fetch('/api/contact').then((res) => res.json()).then((contacts) => {
+  //     setContactsArr(contacts)
+  //     console.log("contacts", contacts);
+  //   });
+  // }, [])
 
-  useEffect(() => {
-    fetch('/api/user').then((res) => res.json()).then((users) => {
-      setUsersArr(users)
-      console.log("users", users);
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetch('/api/user').then((res) => res.json()).then((users) => {
+  //     setUsersArr(users)
+  //     console.log("users", users);
+  //   })
+  // }, [])
 
   return (
     <div className={styles.container}>
