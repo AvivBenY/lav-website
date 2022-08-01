@@ -2,7 +2,7 @@ import { signOut } from "next-auth/react"
 import styles from '../styles/SignOut.module.css'
 import { useSession } from "next-auth/react"
 
-export default function logout(){
+export default function Logout(){
 
     const { data: session } = useSession();
     
