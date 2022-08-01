@@ -27,7 +27,6 @@ export default function Gallery() {
         })
         const contactData = await res.json();
         loadImages();
-    
       }
 
   useEffect(() => {

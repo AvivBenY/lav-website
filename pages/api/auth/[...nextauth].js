@@ -33,7 +33,9 @@ export default NextAuth({
       try {
         const res = await User.findOne({ email: user.user.email });
         if (res) {
+          
           console.log("EMAIL APPROVED");
+
           return true
         } else {
           console.log("NOT A VALID EMAIL");

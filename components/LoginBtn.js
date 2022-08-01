@@ -6,10 +6,11 @@ export default function LoginBtn() {
     console.log(session, loading);
     return (
         <div className={styles.mainDiv}>            
-                <a className={styles.googleBtn} onClick={() => signIn('google')}>
+                <a className={styles.googleBtn} onClick={() => signIn('google',{ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })}>
                     <Image src="/google-login.png" alt="google-signin" width={250} height={60}/></a>
-                <a className={styles.googleBtn} onClick={() => signIn('facebook')}>
+                <a className={styles.googleBtn} onClick={() => signIn('facebook',{ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL})}>
                     <Image src="/facebook-login.png" alt="facebook-signin" width={250} height={60}/></a>
         </div>
     )
 }
+
