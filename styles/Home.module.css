@@ -35,8 +35,8 @@
 
 @media only screen and (max-width: 600px) {
 .aboutDiv{
-  width: 200px;
+  width: 100%;
   font-size: large;
-
+margin: 0;
 }
 }

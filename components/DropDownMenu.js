@@ -12,7 +12,7 @@ export default function MyLink(){
 
 return (
 <div className={styles.dropdown}>
-  <button className={styles.dropbtn}>Dropdown</button>
+  <button className={styles.dropbtn}>תפריט</button>
   <div className={styles.content}>
   <Link href="/"><a onClick={() => setSubHeader('דף הבית')} className={styles.logoBtn}>
           <Image src="/logo.png" alt="" width={50} height={50} />

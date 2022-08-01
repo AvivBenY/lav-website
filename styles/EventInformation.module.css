@@ -62,3 +62,31 @@
     margin-right: 20%;
     margin-top: 4%;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .mainDiv{
+        font-family: 'Open Sans Hebrew Condensed', serif;
+        font-weight:700;
+        direction: rtl;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        color: whitesmoke;
+        background-color: black;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        margin-top: 1%;
+        height: auto;
+    
+    }
+    .infoDiv{
+        font-size: larger;
+        width: 80%;
+        height: auto;
+    }
+    .header{
+        font-size:x-large;
+    }
+}

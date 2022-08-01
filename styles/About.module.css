@@ -31,31 +31,30 @@
     margin: 2%;
 }
 
-/* 
-body {
-  direction: rtl;
-  font-family: "Alef Hebrew", sans-serif;
-  margin: 20px 25% 20px 0;
-  width: 50%;
+
+@media only screen and (max-width: 600px) {
+  .aboutDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: whitesmoke;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    height: 650px;
+    width: 80%;
+    margin: 2%;
+    text-align: center;
+  }
+  .contentDiv{
+    font-size: medium;
+    width: 90%;
+  }
+  .imgDiv{
+    width: 70%;
+    height: 50%;
+    z-index: 1;
+    margin: 2%;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  margin-bottom: 0;
-}
-h1 {
-  font-size: 5em;
-  margin: 0;
-  color: #97403c;
-  letter-spacing: -.05em;
-}
-blockquote {
-  font-size: 2em;
-  font-family: 'Open Sans Hebrew Condensed', serif;
-  width: 45%;
-  margin: 0;
-  color: #777;
-  padding: 0;
-  float: right;
-  margin-right: -47.5%;
-  position: relative;
-} */
+
+  }

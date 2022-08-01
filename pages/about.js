@@ -21,7 +21,7 @@ function people() {
                 מסיבות רחוב המפיצות שמחה בקרב העוברים והשבים
                 וחלוקות פרחים בחגים ומועדים חשובים. לכולם יש מקום אצלינו ומוזמנים באהבה לתת יד וחיוך בפעילויות השונות.
             </div>
-            <div className={styles.imgDiv}><Image src='/aboutImg.png' alt='peson' width={700} height={500} /></div>
+            <div className={styles.imgDiv}><Image src='/aboutImg.png' alt='img' width={700} height={500} /></div>
         </div>
     )
 }
