@@ -20,7 +20,6 @@
 }
 
 .toggleBtn{    
-    font-family: 'Open Sans Hebrew Condensed', serif;
     font-size: 25px; 
     top:50%;
     background-color: #555555;
@@ -33,7 +32,6 @@
     background-color: gray;
 }
 .infoDiv{
-    font-family: 'Open Sans Hebrew Condensed', serif;
     width: 60%;
     height: 500px;
     display: flex;
@@ -48,16 +46,13 @@
 .hebEventInfo{
     text-align: center;
     direction: rtl;
-    font-family: 'Open Sans Hebrew Condensed', serif;
 }
 
 .enEventInfo{
     text-align: center;
-    font-family: 'Open Sans Hebrew Condensed', serif;
 }
 
 .header{
-    font-family: 'Open Sans Hebrew Condensed', serif;
     font-weight:700;
     direction: rtl;
     width: 40%;
