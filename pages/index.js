@@ -1,12 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import DropDownMenu from '../components/DropDownMenu'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import DropDownMenu from "../components/DropDownMenu";
 
 export default function Home() {
-
-
   return (
     <div className={styles.container}>
       <Head>
@@ -15,17 +13,30 @@ export default function Home() {
       </Head>
 
       <div>
-        <Image className={styles.mainImg} src='/newHomePic.png' alt="" width={1700} height={600} />
+        <Image
+          className={styles.mainImg}
+          src="/newHomePic.png"
+          alt=""
+          width={1700}
+          height={600}
+        />
       </div>
-      <div className={styles.aboutDiv} style={{ fontFamily:  'Open Sans Hebrew Condensed' + 'serif' }}>
-        <Link href='/about'><div className={styles.bottomLink}>
-          <p >ל.א.ו הוא ארגון ללא מטרות רווח שהוקם<br />כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
-            <br /><br /> <span>לחצו כאן לסיפור המלא שלנו</span>
-          </p>
-        </div>
+      <div
+        className={styles.aboutDiv}
+        style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
+      >
+        <Link href="/about">
+          <div className={styles.bottomLink}>
+            <p>
+              ל.א.ו הוא ארגון ללא מטרות רווח שהוקם
+              <br />
+              כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
+              <br />
+              <br /> <span>לחצו כאן לסיפור המלא שלנו</span>
+            </p>
+          </div>
         </Link>
-      </div >      
-    </div >
-     
-  )
+      </div>
+    </div>
+  );
 }

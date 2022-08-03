@@ -1,14 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import url from "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap";
 
 export default function Document() {
-  const url = new URL(
-    "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
-    import.meta.url
-  );
   return (
     <Html>
       <Head>
-        <style>@import {url.pathname}</style>
+        <style>@import url({url})</style>
       </Head>
       <body>
         <Main />
