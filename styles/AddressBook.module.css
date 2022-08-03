@@ -23,6 +23,7 @@
     text-align:right;    
 }
 .vForm{
+    direction: rtl;
     font-size: large;
     direction: rtl;
     color: black;
