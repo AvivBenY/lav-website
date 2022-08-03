@@ -141,8 +141,7 @@ export default function AddressBook() {
   }
 
   return (
-    <div style={{}}
-      className={styles.tableMainDiv} container wrap="nowrap" spacing={2}>
+    <div className={styles.tableMainDiv} container wrap="nowrap" spacing={2}>
       <DataGrid
         rowHeight={70}
         rows={rows}
