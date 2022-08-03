@@ -23,12 +23,12 @@ export default function Home() {
       </div>
       <div
         className={styles.aboutDiv}
-        style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+        style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
       >
         <Link href="/about">
           <div
             className={styles.bottomLink}
-            style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+            style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
           >
             <p>
               ל.א.ו הוא ארגון ללא מטרות רווח שהוקם

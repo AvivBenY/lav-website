@@ -9,7 +9,7 @@ export default function BottomLinks() {
       <div className={styles.bottomDiv}>
         <Link href="/contactUs">
           <div
-            style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+            style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
             className={styles.bottomLink}
           >
             {" "}
@@ -18,7 +18,7 @@ export default function BottomLinks() {
         </Link>
         <Link href="/howToHelp">
           <div
-            style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+            style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
             className={styles.bottomLink}
           >
             <p>
