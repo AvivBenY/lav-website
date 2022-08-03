@@ -8,19 +8,10 @@ export default function BottomLinks() {
     <>
       <div className={styles.bottomDiv}>
         <Link href="/contactUs">
-          <div
-            style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
-            className={styles.bottomLink}
-          >
-            {" "}
-            יצירת קשר{" "}
-          </div>
+          <div className={styles.bottomLink}>יצירת קשר</div>
         </Link>
         <Link href="/howToHelp">
-          <div
-            style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
-            className={styles.bottomLink}
-          >
+          <div className={styles.bottomLink}>
             <p>
               רוצים להצטרף לעשייה? <br /> לחצו כאן
             </p>
