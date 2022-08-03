@@ -4,7 +4,7 @@
 
   
   .mainDiv{
-    font-family: 'Open Sans Hebrew Condensed', serif;
+    
     font-weight: bold;
     font-size: larger;
     position: sticky;
@@ -19,6 +19,7 @@
 
   }
   .navBar{
+    font-family: 'Open Sans Hebrew Condensed', serif;
     position: sticky;
     top: 0;
     left:0;
@@ -33,6 +34,7 @@
   }
 
   .navBtn {    
+    font-family: 'Open Sans Hebrew Condensed', serif;
     width: 20%;  
     height: 50%;
     text-align: center;
@@ -85,7 +87,7 @@
 
   .subHeader{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
+    font-family: 'Open Sans Hebrew Condensed', serif;
     align-self: flex-end;
     display: flex;
     margin: 1% 10% 1% 0;
@@ -135,6 +137,7 @@
   
   /* Dropdown Content (Hidden by Default) */
   .content {
+    font-family: 'Open Sans Hebrew Condensed', serif;
     direction: rtl;
     display: flex;
     flex-direction: column;
