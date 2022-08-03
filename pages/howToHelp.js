@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AddVolunteer from '../components/AddVolunteer'
 import styles from '../styles/EventInformation.module.css'
+
 export default function HowToHelp() {
     //CHANGE TO USESTATE FOR FORM TO WORK    
     const [toggleForm, setToggleForm] = useState(false)
