@@ -13,7 +13,7 @@ return(
         <div>
             <p>{session.user.name}</p>
             <button className={styles.signOutBtn} onClick={() =>
-            signOut({ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })}>Sign out</button>
+            signOut({ callbackUrl: process.env.NEXT_PUBLIC_SERVER_URL })} >Sign out</button>
         </div>)}
         </div>
     

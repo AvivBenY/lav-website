@@ -32,6 +32,7 @@
     background-color: gray;
 }
 .infoDiv{
+    font-family: 'Open Sans Hebrew Condensed', serif;
     width: 60%;
     height: 500px;
     display: flex;
