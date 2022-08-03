@@ -5,9 +5,15 @@ import styles from "../styles/EventInformation.module.css";
 export default function HowToHelp() {
   const [toggleForm, setToggleForm] = useState(false);
   return (
-    <div className={styles.mainDiv}>
+    <div
+      className={styles.mainDiv}
+      style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+    >
       <div className={styles.header}>הצטרפו למשפחה!</div>
-      <div className={styles.infoDiv}>
+      <div
+        className={styles.infoDiv}
+        style={(fontFamily = "Open Sans Hebrew Condensed" + "serif")}
+      >
         <div className={styles.enEventInfo}>
           <p>Visit Us</p>
           <p>
