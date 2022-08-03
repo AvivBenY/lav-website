@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import DropDownMenu from '../components/DropDownMenu'
+
 export default function Home() {
 
 
@@ -18,12 +19,13 @@ export default function Home() {
       </div>
       <div className={styles.aboutDiv}>
         <Link href='/about'><div className={styles.bottomLink}>
-          <p>ל.א.ו הוא ארגון ללא מטרות רווח שהוקם<br />כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
+          <p >ל.א.ו הוא ארגון ללא מטרות רווח שהוקם<br />כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
             <br /><br /> <span>לחצו כאן לסיפור המלא שלנו</span>
           </p>
         </div>
         </Link>
-      </div >
+      </div >      
     </div >
+     
   )
 }
