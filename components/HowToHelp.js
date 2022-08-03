@@ -9,7 +9,7 @@ export default function HowToHelp() {
       <div className={styles.header}>הצטרפו למשפחה!</div>
       <div className={styles.infoDiv}>
         <div className={styles.enEventInfo}>
-          <p>Visit Us</p>
+          <p className={styles.try}>Visit Us</p>
           <p>
             Jerusalem: <br /> Tuesday
           </p>
