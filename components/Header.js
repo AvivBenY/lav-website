@@ -14,8 +14,8 @@ export default function Header() {
 
 
   return (
-    <div className={styles.mainDiv} sx={{ fontFamily: 'Open Sans Hebrew Condensed'}}>
-      <nav className={styles.navBar}>
+    <div className={styles.mainDiv} >
+      <nav className={styles.navBar} sx={{ fontFamily: 'Open Sans Hebrew Condensed'}}>
         {session && (
           <Link href="/addressBook"><a onClick={() => setSubHeader('פרטי משפחות')} className={styles.navBtn}>פרטי משפחות</a>
           </Link>
