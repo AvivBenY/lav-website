@@ -17,7 +17,7 @@ export default function Home() {
       <div>
         <Image className={styles.mainImg} src='/newHomePic.png' alt="" width={1700} height={600} />
       </div>
-      <div className={styles.aboutDiv}>
+      <div className={styles.aboutDiv} style={{ fontFamily:  'Open Sans Hebrew Condensed' + 'serif' }}>
         <Link href='/about'><div className={styles.bottomLink}>
           <p >ל.א.ו הוא ארגון ללא מטרות רווח שהוקם<br />כדי ליצור אחדות בעם ישראל בעזרת נתינה לאחר
             <br /><br /> <span>לחצו כאן לסיפור המלא שלנו</span>
