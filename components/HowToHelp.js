@@ -9,7 +9,12 @@ export default function HowToHelp() {
       className={styles.mainDiv}
       style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
     >
-      <div className={styles.header}>הצטרפו למשפחה!</div>
+      <div
+        className={styles.header}
+        style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
+      >
+        הצטרפו למשפחה!
+      </div>
       <div
         className={styles.infoDiv}
         style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
