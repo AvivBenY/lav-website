@@ -15,7 +15,9 @@ a {
   text-decoration: none;
 
 }
-
+p span div a Link button {
+  font-family: 'Open Sans Hebrew Condensed', serif;
+}
 * {
   box-sizing: border-box;
   font-family: 'Open Sans Hebrew Condensed', serif;
