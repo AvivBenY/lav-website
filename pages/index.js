@@ -21,10 +21,7 @@ export default function Home() {
           height={600}
         />
       </div>
-      <div
-        className={styles.aboutDiv}
-        style={{ fontFamily: "Open Sans Hebrew Condensed" + "serif" }}
-      >
+      <div className={styles.aboutDiv}>
         <Link href="/about">
           <div
             className={styles.bottomLink}

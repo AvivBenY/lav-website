@@ -33,6 +33,10 @@
         border-radius: 12px;
 }
 
+.bottomLink{
+  font-family: 'Open Sans Hebrew Condensed', serif;
+
+}
 
 @media only screen and (max-width: 600px) {
 .aboutDiv{
