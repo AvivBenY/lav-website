@@ -17,8 +17,7 @@
 }
 
 .aboutDiv{
-  color: red !important;
-  font-family: 'Open Sans Hebrew Condensed', serif;
+  font-family: 'Open Sans Hebrew Condensed', serif !important;
   margin: 1%;
   width: 400px;
     height: 150px;
