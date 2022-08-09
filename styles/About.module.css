@@ -14,7 +14,7 @@
 }
 
 .contentDiv{
-    /* font-family: 'Open Sans Hebrew Condensed', serif; */
+    font-family: 'Open Sans Hebrew Condensed', serif;
     font-weight:bold;
     font-size: 1.5em;
     direction: rtl;
