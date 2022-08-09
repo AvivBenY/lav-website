@@ -2,6 +2,7 @@
 const { DB_PASS, DB_USER, DB_HOST, DB_NAME } = process.env;
 const nextConfig = {
   reactStrictMode: true,
+  optimizeFonts: false,
   env: {
     DB_PASS,
     DB_USER,
@@ -13,9 +14,4 @@ const nextConfig = {
   },
 };
 
-// module.exports = nextConfig
-
-module.exports = {
-  nextConfig,
-  optimizeFonts: false,
-};
+module.exports = nextConfig;
