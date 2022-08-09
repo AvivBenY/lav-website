@@ -1,6 +1,6 @@
-/* @import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css);
-@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
-@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css); */
+/* @import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css); */
+/* @import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css); */
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 
 .aboutDiv{
     display: flex;
@@ -17,8 +17,7 @@
 }
 
 .contentDiv{
-    /* font-family: 'Open Sans Hebrew Condensed', serif; */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Hebrew Condensed', serif;
     font-weight:bold;
     font-size: 1.5em;
     direction: rtl;
