@@ -5,7 +5,6 @@
 
 .galleryDiv{
   font-family: 'Open Sans Hebrew Condensed', serif;
-
   border-radius: 5%;
     margin-top: 2%;
     box-sizing: border-box;
@@ -41,4 +40,18 @@
 
 .removeBtn{
   width: 25px;
+}
+
+
+@media only screen and (max-width: 600px) {
+.slide{
+  width: 200px;
+  height: 200px;
+}
+
+.galleryDiv{
+  height: auto;
+  padding-top: 5%;
+}
+
 }
