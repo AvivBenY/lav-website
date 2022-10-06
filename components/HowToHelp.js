@@ -20,7 +20,7 @@ export default function HowToHelp() {
             Ramat-Gan: <br /> Thursday
           </p>
           <p>
-            Rambam Squar <br /> 20:00 - 23:00
+            Tirtza St. 19 <br /> 20:00 - 23:00
           </p>
         </div>
         <div className={styles.hebEventInfo}>
@@ -36,7 +36,7 @@ export default function HowToHelp() {
             :מרכז <br /> יום חמישי
           </p>
           <p>
-            כיכר רמבם/אורדע רמת גן <br /> 20:00 - 23:00
+            תרצה 19 רמת גן <br /> 20:00 - 23:00
           </p>
         </div>
       </div>
