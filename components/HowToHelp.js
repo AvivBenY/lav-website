@@ -14,7 +14,7 @@ export default function HowToHelp() {
             Jerusalem: <br /> Tuesday
           </p>
           <p>
-            Mahne Yehuda Market <br /> 20:00 - 23:00
+            Mahne Yehuda Market <br /> 18:00 - 22:00
           </p>
           <p>
             Ramat-Gan: <br /> Thursday
@@ -30,7 +30,7 @@ export default function HowToHelp() {
           </p>
           <p>
             {" "}
-            שוק מחנה יהודה <br /> 20:00 - 23:00
+            שוק מחנה יהודה <br /> 18:00 - 22:00
           </p>
           <p>
             :מרכז <br /> יום חמישי
