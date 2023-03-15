@@ -1,182 +1,193 @@
+.mainDiv {
 
-  .mainDiv{
-    
-    font-weight: bold;
-    font-size: larger;
-    position: sticky;
-    top: 0;
-    left:0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000000;
-
-  }
-  .navBar{
-    font-family: 'Open Sans Hebrew Condensed', serif;
-    position: sticky;
-    top: 0;
-    left:0;
-    background-color: white;
-    width: 100%;
-    border-bottom:1px solid #ccc!important;
-    border: 2px;
-    padding-left: 5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .navBtn {    
-    font-family: 'Open Sans Hebrew Condensed', serif;
-    width: 20%;  
-    height: 50%;
-    text-align: center;
-    align-self: center; 
-    cursor: pointer;
-    position: relative;
-    padding: 6px 21px;
-    cursor: pointer;
-    transition: ease-out 0.5s;
-    -webkit-transition: ease-out 0.5s;
-    -moz-transition: ease-out 0.5s;
-}
-
-  .navBtn::after,
-  .navBtn::before {
-      position: absolute;
-      content: "";
-      width: 0;
-      height: 0;
-      transition: .5s;
-  }
-  
-  .navBtn::after {
-      top: -9px;
-      left: -9px;
-      border-top: 3px solid transparent;
-      border-left: 3px solid transparent;
-  }
-  
-  .navBtn::before {
-      bottom: -9px;
-      right: -9px;
-      border-bottom: 3px solid transparent;
-      border-right: 3px solid transparent;
-  }
-  
-  .navBtn:hover {
-      color: #222222;
-  }
-  
-  .navBtn:hover::after,
-  .navBtn:hover::before {
-      width: 30px;
-      height: 30px;
-      border-color: #222222;
-  }
-  #flex { display: flex; flex-direction: row; }
-  .navIndex { order: 1; }
-  .navLogo { order: 2; }
-
-  .subHeader{
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: 'Open Sans Hebrew Condensed', serif;
-    align-self: flex-end;
-    display: flex;
-    margin: 1% 10% 1% 0;
-    flex-direction: row;
-    justify-content:center;
-    align-items: center;
-    width: 15%;
-    height: 50px;
-    font-size: larger;
-    background-color: black;
-    border: 1px solid black;
-    color: whitesmoke;
-  }
-.dropdown{
-  display: none;
-}
-  @media only screen and (max-width: 600px) {
-    .mainDiv{
-      display: none;
-    }
-      /* Style The Dropdown Button */
-.dropbtn{
-  font-family: 'Open Sans Hebrew Condensed', serif;
   font-weight: bold;
   font-size: larger;
   position: sticky;
   top: 0;
-  left:0;
+  left: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
 
+}
+
+.navBar {
+  font-family: 'Open Sans Hebrew Condensed', serif;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid #ccc !important;
+  border: 2px;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navBtn {
+  font-family: 'Open Sans Hebrew Condensed', serif;
+  width: 20%;
+  height: 50%;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 21px;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  -webkit-transition: ease-out 0.5s;
+  -moz-transition: ease-out 0.5s;
+}
+
+.navBtn::after,
+.navBtn::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  transition: .5s;
+}
+
+.navBtn::after {
+  top: -9px;
+  left: -9px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+
+.navBtn::before {
+  bottom: -9px;
+  right: -9px;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.navBtn:hover {
+  color: #222222;
+}
+
+.navBtn:hover::after,
+.navBtn:hover::before {
+  width: 30px;
+  height: 30px;
+  border-color: #222222;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.navIndex {
+  order: 1;
+}
+
+.navLogo {
+  order: 2;
+}
+
+.subHeader {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Open Sans Hebrew Condensed', serif;
+  align-self: flex-end;
+  display: flex;
+  margin: 1% 10% 1% 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 50px;
+  font-size: larger;
   background-color: black;
   border: 1px solid black;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: whitesmoke;
+}
+
+.container {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {  
+  .mainDiv {
+    display: none;
+  }
+
+  .container{
+    margin: 2%;
+    display: block;
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Style The Dropdown Button */
+  .dropbtn { 
+  position: sticky;
+  top: 0;
+  left:0;
   color: white;
   padding: 16px;
-  font-size: 16px;
   border: none;
   cursor: pointer;
   }
-  
+
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
-  z-index: 100;
-  display: block;
-  display: inline-block;
+    z-index: 100;
+    display: block;
+    display: inline-block;
   }
-  
+
   /* Dropdown Content (Hidden by Default) */
   .content {
     direction: rtl;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
+    position: fixed;  
     display: none;
-    position: absolute;
+    right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  
   }
-  
+
   /* Links inside the dropdown */
-  .content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+  .content a{
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none;
+    display: block;
   }
-  
+
   /* Change color of dropdown links on hover */
   .content a:hover {
-
     background-color: #f1f1f1
   }
-  
+
   /* Show the dropdown menu on hover */
   .dropdown:hover .content {
-  text-align: center;
-  display: block;
+    text-align: center;
+    display: block;
 
   }
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-  background-color: black;
-  
-}
 
-.logoBtn{
-  z-index: 1000;
+  .logoBtn {
+    z-index: 1000;    
+  }
+  
+  .menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-
-  
-  
-    }

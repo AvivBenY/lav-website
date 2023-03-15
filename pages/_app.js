@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </Head>
           <Header />
           <DropDownMenu />
-          <Component {...pageProps} />
+          <Component {...pageProps} className={styles.cmp} />
           <BottomLinks />
         </ContextProvider>
       </SessionProvider>

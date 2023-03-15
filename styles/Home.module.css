@@ -1,6 +1,6 @@
 
 .container {
-  
+  margin-top: 30px;
   align-content: center;
   width: 100%;
   display: flex;
@@ -40,9 +40,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .container{
+    margin-top: 35px;
+  }
 .aboutDiv{
   width: 98%;
   font-size: large;
 margin: 0;
 }
+
 }

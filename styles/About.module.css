@@ -8,7 +8,6 @@
     color: whitesmoke;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     height:auto;
-    height: 700px;
     width: 80%;
     margin: 2%;
 }
@@ -31,6 +30,7 @@
 
 @media only screen and (max-width: 600px) {
   .aboutDiv{
+    padding: 2% 0 2% 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,17 +38,18 @@
     background-color: black;
     color: whitesmoke;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    height: 650px;
-    width: 80%;
-    margin: 2%;
+    height: auto;
+    width: 85%;
+    margin: 45px 2% 2% 2%;
     text-align: center;
   }
   .contentDiv{
+    padding: 2% 0 2% 0;
     font-size: medium;
     width: 90%;
   }
   .imgDiv{
-    width: 70%;
+    width: 90%;
     height: 50%;
     z-index: 1;
     margin: 2%;

@@ -112,5 +112,10 @@ justify-content: flex-start;
     }
     .volContent{
         width: 70%;
+        direction: rtl;
+    }
+    
+    .formItem{
+        margin-top: 2%;
     }
 }

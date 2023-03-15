@@ -8,8 +8,25 @@ export default function HowToHelp() {
     <div className={styles.mainDiv}>
       <div className={styles.header}>הצטרפו למשפחה!</div>
       <div className={styles.infoDiv}>
+        <div className={styles.hebEventInfo}>
+          <p className={styles.try}>הצטרפו אלינו</p>
+          <p>
+            ירושלים: <br /> יום שלישי
+          </p>
+          <p>
+            {" "}
+            שוק מחנה יהודה <br /> 18:00 - 22:00
+          </p>
+          <p>
+            מרכז: <br /> יום חמישי
+          </p>
+          <p>
+            תרצה 19 רמת גן (מרכז מרום נווה)
+            <br /> 20:00 - 23:00
+          </p>
+        </div>
         <div className={styles.enEventInfo}>
-          <p>Visit Us</p>
+          <p>Join Us</p>
           <p>
             Jerusalem: <br /> Tuesday
           </p>
@@ -23,31 +40,14 @@ export default function HowToHelp() {
             Tirtza St. 19 <br /> 20:00 - 23:00
           </p>
         </div>
-        <div className={styles.hebEventInfo}>
-          <p className={styles.try}>זמני חלוקות</p>
-          <p>
-            ירושלים: <br /> יום שלישי
-          </p>
-          <p>
-            {" "}
-            שוק מחנה יהודה <br /> 18:00 - 22:00
-          </p>
-          <p>
-            :מרכז <br /> יום חמישי
-          </p>
-          <p>
-            תרצה 19 רמת גן (מרכז מרום נווה)
-            <br /> 20:00 - 23:00
-          </p>
-        </div>
       </div>
       <button
         className={styles.toggleBtn}
         onClick={() => setToggleForm(!toggleForm)}
       >
-        צרו איתי קשר !
+        הרשמה כמתנדב/ת
       </button>
-      {toggleForm === true ? <AddVolunteer /> : null}
+      {toggleForm && <AddVolunteer />}
     </div>
   );
 }

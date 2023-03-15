@@ -1,37 +1,37 @@
-import Glide from '@glidejs/glide'
-import React, { useCallback, useEffect, useState } from 'react'
+import Glide from "@glidejs/glide";
+import React, { useCallback, useEffect, useState } from "react";
 import "../styles/UploadImg.module.scss";
-import styles from '../styles/Gallery.module.css'
-import Image from 'next/image';
-import { useInfo } from '../Context/Context'
-import UploadImg from './adminCmp/UploadImg'
-import { useSession } from "next-auth/react"
+import styles from "../styles/Gallery.module.css";
+import Image from "next/image";
+import { useInfo } from "../Context/Context";
+import UploadImg from "./adminCmp/UploadImg";
+import { useSession } from "next-auth/react";
 
 export default function Gallery() {
-  const { photos, setPhotos } = useInfo()
+  const { photos, setPhotos } = useInfo();
   const { data: session, status: loading } = useSession();
 
   const loadImages = useCallback(async () => {
     try {
-      const res = await fetch('api/photo');
+      const res = await fetch("api/photo");
       const data = await res.json();
       setPhotos(data);
     } catch (error) {
       console.log(error);
     }
-  }, [setPhotos])
+  }, [setPhotos]);
 
   const deleteImage = async (imgId) => {
-        const res = await fetch(`/api/photo?_id=${imgId}`, {
-          method: 'DELETE'
-        })
-        const contactData = await res.json();
-        loadImages();
-      }
+    const res = await fetch(`/api/photo?_id=${imgId}`, {
+      method: "DELETE",
+    });
+    const contactData = await res.json();
+    loadImages();
+  };
 
   useEffect(() => {
     loadImages();
-  }, [loadImages])
+  }, [loadImages]);
 
   useEffect(() => {
     if (photos.length > 0) {
@@ -41,91 +41,114 @@ export default function Gallery() {
         autoplay: 2000,
         hoverpause: true,
         perView: 3,
-        gap: 10
+        gap: 10,
       }).mount();
     }
   }, [photos.length]);
 
   return (
     <>
-     {!session ? 
-    <div className={styles.galleryDiv}>
-      <div className={"glide"} style={{ paddingTop: "5px", paddingRight: "0px" }}>
-        <div className="glide__track" data-glide-el="track">
-
-          <ul className="glide__slides">
-            {photos.length > 0 && photos.map(photo => {
-              return (
-                <li className={["glide__slide"] + " " + [styles.slide]} key={photo._id}>
-                  <a href={photo.src}><Image
-                    alt='cloudinary image'
-                    src={photo.src}
-                    width={450}
-                    height={450}
-                  /></a>
-                </li>
-              )
-            })}
-
-          </ul>
-           <div style={{ paddingLeft: "50%" }} className="glide__arrows" data-glide-el="controls">
-            <a
-              className="glide_arrow glide_arrow--left"
-              data-glide-dir="<"
-            >
-              ⋘
-            </a>
-            <a
-              className="glide_arrow glide_arrow--right"
-              data-glide-dir=">"
-            >
-             ⋙
-            </a>
+      {!session ? (
+        <div className={styles.galleryDiv}>
+          <div
+            className={"glide"}
+            style={{ paddingTop: "5px", paddingRight: "0px" }}
+          >
+            <div className="glide__track" data-glide-el="track">
+              <ul className="glide__slides">
+                {photos.length > 0 &&
+                  photos.map((photo) => {
+                    return (
+                      <li
+                        className={["glide__slide"] + " " + [styles.slide]}
+                        key={photo._id}
+                      >
+                        <a href={photo.src}>
+                          <Image
+                            alt="cloudinary image"
+                            src={photo.src}
+                            width={450}
+                            height={450}
+                          />
+                        </a>
+                      </li>
+                    );
+                  })}
+              </ul>
+              <div
+                style={{ paddingLeft: "50%" }}
+                className="glide__arrows"
+                data-glide-el="controls"
+              >
+                <a className="glide_arrow glide_arrow--left" data-glide-dir="<">
+                  ⋘
+                </a>
+                <a
+                  className="glide_arrow glide_arrow--right"
+                  data-glide-dir=">"
+                >
+                  ⋙
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    : 
-      <div className={styles.galleryDiv}>
-        <UploadImg/>
-        <div className={"glide"} style={{ paddingTop: "5px", paddingRight: "0px" }}>
-          <div className="glide__track" data-glide-el="track">
-            <ul className="glide__slides">
-              {photos.length > 0 && photos.map(photo => {
-                return (
-                  <li className={["glide__slide"] + " " + [styles.slide]} key={photo._id}>
-                    <button className={styles.removeBtn} onClick={() => deleteImage(photo._id)}>x</button>
-                    <a href={photo.src}><Image
-                      alt='cloudinary image'
-                      src={photo.src}
-                      width={450}
-                      height={450}
-                    /></a>
-                  </li>
-                )
-              })}
-            </ul>
-            <div style={{ paddingLeft: "50%" }} className="glide__arrows" data-glide-el="controls">
-            <a
-              className="glide_arrow glide_arrow--left"
-              data-glide-dir="<"
-            >
-              ⋘
-            </a>
-            <a
-              className="glide_arrow glide_arrow--right"
-              data-glide-dir=">"
-            >
-             ⋙
-            </a>
-          </div>
+      ) : (
+        <div className={styles.galleryDiv}>
+          <UploadImg />
+          <div
+            className={"glide"}
+            style={{ paddingTop: "5px", paddingRight: "0px" }}
+          >
+            <div className="glide__track" data-glide-el="track">
+              <ul className="glide__slides">
+                {photos.length > 0 &&
+                  photos.map((photo) => {
+                    return (
+                      <li
+                        className={["glide__slide"] + " " + [styles.slide]}
+                        key={photo._id}
+                      >
+                        <button
+                          className={styles.removeBtn}
+                          onClick={() => deleteImage(photo._id)}
+                        >
+                          x
+                        </button>
+                        <a href={photo.src}>
+                          <Image
+                            alt="cloudinary image"
+                            src={photo.src}
+                            width={450}
+                            height={450}
+                          />
+                        </a>
+                      </li>
+                    );
+                  })}
+              </ul>
+              <div
+                style={{ paddingLeft: "50%" }}
+                className="glide__arrows"
+                data-glide-el="controls"
+              >
+                <a className="glide_arrow glide_arrow--left" data-glide-dir="<">
+                  ⋘
+                </a>
+                <a
+                  className="glide_arrow glide_arrow--right"
+                  data-glide-dir=">"
+                >
+                  ⋙
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
- } </>
+      )}{" "}
+    </>
   );
 }
-
 
 //
 //   return (
@@ -170,16 +193,6 @@ export default function Gallery() {
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
-
 // import React, { useEffect, useState } from 'react'
 // import Image from "next/image"
 // import styles from '../styles/Gallery.module.css'
@@ -190,7 +203,6 @@ export default function Gallery() {
 
 //   const [imageUrls, setimageUrls] = useState(null)
 //   const { data: session, status: loading } = useSession();
-
 
 //   const loadImages = async () => {
 //     try {
@@ -255,4 +267,3 @@ export default function Gallery() {
 
 //   )
 // }
-
