@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 export default function Gallery() {
   const { photos, setPhotos } = useInfo();
   const { data: session, status: loading } = useSession();
+  const [isMobile, setIsMobile] = useState(false);
 
   const loadImages = useCallback(async () => {
     try {
@@ -30,6 +31,14 @@ export default function Gallery() {
   };
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth <= 600) {
+        setIsMobile(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     loadImages();
   }, [loadImages]);
 
@@ -45,6 +54,11 @@ export default function Gallery() {
       }).mount();
     }
   }, [photos.length]);
+
+  const imgStyle = {
+    width: "500px",
+    height: "500px",
+  };
 
   return (
     <>
@@ -67,8 +81,8 @@ export default function Gallery() {
                           <Image
                             alt="cloudinary image"
                             src={photo.src}
-                            width={450}
-                            height={450}
+                            width={isMobile ? 1000 : 550}
+                            height={isMobile ? 1000 : 550}
                           />
                         </a>
                       </li>
@@ -76,18 +90,34 @@ export default function Gallery() {
                   })}
               </ul>
               <div
-                style={{ paddingLeft: "50%" }}
+                // style={{ paddingLeft: "50%" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginTop: "70px",
+                }}
                 className="glide__arrows"
                 data-glide-el="controls"
               >
                 <a className="glide_arrow glide_arrow--left" data-glide-dir="<">
-                  ⋘
+                  <Image
+                    alt="cloudinary image"
+                    src="/leftArrow.png"
+                    width={25}
+                    height={25}
+                  />
                 </a>
                 <a
                   className="glide_arrow glide_arrow--right"
                   data-glide-dir=">"
                 >
-                  ⋙
+                  <Image
+                    alt="cloudinary image"
+                    src="/rightArrow.png"
+                    width={25}
+                    height={25}
+                  />
                 </a>
               </div>
             </div>

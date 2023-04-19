@@ -39,3 +39,36 @@
         font-size: 16px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
+
+@media only screen and (max-width: 600px) {
+.contactDiv{
+    margin-top: 10%;
+    font-family: 'Open Sans Hebrew Condensed', serif;  
+    width: 90vw;
+    height: 50vh;
+    margin-bottom: 2%;    
+    background-color: black;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    padding-left: 6%;    
+}
+.contacts{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: space-evenly;
+    font-size:medium;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: space-evenly;
+}
+}
